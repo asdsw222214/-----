@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>POPCAT CLASSIC</title>
+        <style>
+            /* Reset body spacing and set global font */
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .box {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                background: #bdaa90;
+                padding-top: 2rem;
+                box-sizing: border-box;
+                gap: 1rem;
+            }
+
+            /* Title box (if present) */
+            #title-box {
+                width: 80%;
+                max-width: 60px;
+            }
+
+            /* New text container that fills remaining space */
+            #op {
+                width: 100%;
+                max-width: 1600px;
+                box-sizing: border-box;
+                flex: 1; /* fill remaining space */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                background-image: url('imgs/op.png');
+                background-position: bottom center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            .box p {
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                margin: 0;
+            }
+
+            .box img {
+                max-width: 90%;
+                height: auto;
+            }
+
+            #counter {
+                font-size: 6rem;
+                font-weight: bold;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Prevent text selection inside the box */
+            .box, .box * {
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <img src="imgs/popcat.svg" alt="Popcat CLASSIC">
+            <div id="op">
+                <p>Click the cat to pop!</p>
+            </div>
+            <div id="counter">0</div>
+        </div>
+        <script src="js/index.js"></script>
+    </body>    
+</html>
