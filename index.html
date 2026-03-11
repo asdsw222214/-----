@@ -1,3 +1,4 @@
+            <img src="imgs/popcat.svg" alt="Popcat CLASSIC" style="position: absolute; left: 50%; top: 15%; transform: translate(-50%, -15%); z-index: 2; width: 40%; pointer-events: none;">
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,7 +41,7 @@
                 align-items: center;
                 justify-content: center;
                 padding: 1rem;
-                background-image: url('imgs/op.png');
+                background-image: url('imgs/p.png');
                 background-position: bottom center;
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -75,13 +76,47 @@
         </style>
     </head>
     <body>
-        <div class="box">
-            <img src="imgs/popcat.svg" alt="Popcat CLASSIC">
+        <div class="box" style="position: relative;">
+
             <div id="op">
                 <p>Click the cat to pop!</p>
             </div>
-            <div id="counter">0</div>
+            <div id="counter" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 3;">0</div>
         </div>
-        <script src="js/index.js"></script>
+        <script>
+// 計數器初始化
+let counter = 0;
+
+// 抓取計數器顯示元素
+const counterElement = document.getElementById('counter');
+
+// 計數器累加 function
+function incrementCounter() {
+    counter++;
+}
+
+// 更新計數器顯示
+function updateCounterDisplay() {
+    counterElement.textContent = counter;
+}
+
+// 註冊滑鼠按下事件到整個 box
+const box = document.querySelector('.box');
+const boxDiv = document.querySelector('.box');
+// p.png/op.png 作為 box 背景
+boxDiv.style.backgroundImage = "url('imgs/p.png')";
+
+box.addEventListener('mousedown', function() {
+    incrementCounter();
+    updateCounterDisplay();
+    console.log(counter);
+    boxDiv.style.backgroundImage = "url('imgs/op.png')";
+    setTimeout(() => {
+        boxDiv.style.backgroundImage = "url('imgs/p.png')";
+    }, 100);
+});
+// 初始化顯示
+updateCounterDisplay();
+        </script>
     </body>    
 </html>
